@@ -8,11 +8,7 @@
             </header>
 
             <a href="{{ .RelPermalink }}" class="image fit">
-
-                {{ with .Params.images }}
-                    <img src="{{ .src }}" alt="{{ .name }}">
-                {{ end }}
-
+                <img src="{{ .Params.thumbnail }}">
             </a>    
 
             <header>

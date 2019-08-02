@@ -133,7 +133,7 @@
 						</div>
 					</section>
 
-				<!-- Contact -->
+				<!-- Sign In -->
 					<section id="login" class="five">
 						<div class="container">
 
@@ -143,12 +143,12 @@
 
 							<p>Sign into the website to see your Community Documents and interact with your neighbors.</p>
 
-							<form method="post" action="#">
+							<form id="loginForm" method="post" action="#" >
 								<div class="row">
-									<div class="6u 12u$(mobile)"><input type="text" name="email" placeholder="Username (Email)" /></div>
-									<div class="6u$ 12u$(mobile)"><input type="password" name="password" placeholder="Password" /></div>
+									<div class="6u 12u$(mobile)"><input type="text" id="email" name="email" placeholder="Username (Email)" /></div>
+									<div class="6u$ 12u$(mobile)"><input type="password" id="password" name="password" placeholder="Password" /></div>
 									<div class="12u$">
-										<input type="submit" value="Sign In" />
+                                    	<input id="loginButton" type="button" onclick="return false;" value="Sign In"/>
 									</div>
 								</div>
 							</form>
@@ -176,6 +176,14 @@
 			<script src="/js/util.js"></script>
 			<!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
 			<script src="/js/main.js"></script>
+			<script src="/js/auth.js"></script>
+
+			<script>
+				var authHandler = new authenticationHandler({ baseAuthUrl : "{{ .Site.Params.auth_endpoint }}"}); 
+				$('#loginButton').click(function() {
+				   authHandler.login();
+				});
+			</script>
 
 	</body>
 </html>

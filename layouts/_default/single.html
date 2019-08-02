@@ -50,8 +50,8 @@
                 <!-- Intro -->
                     {{ $Title := .Title }}
                     {{ $Description := .Description }}
-                    {{ with .Params.images }}
-                    <section id="top" class="one dark cover" style="background-image: url('{{ .src }}')">
+                    
+                    <section id="top" class="one dark cover" style="background-image: url('{{ .Params.thumbnail }}')">
                         <div class="container">
 
                             <header>
@@ -63,7 +63,6 @@
 
                         </div>
                     </section>
-                    {{ end }}
 
                     <!-- Post -->
                     <section class="post">

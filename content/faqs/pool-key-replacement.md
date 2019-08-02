@@ -1,15 +1,11 @@
-+++
-title = "Pool Key Cards"
-description = "How do I get a replacement pool key card?"
-date = 2019-03-13T11:33:25-04:00
-draft = false
-tags = ["faq"]
+---
+title: Pool Key Cards
+description: How do I get a replacement pool key card?
+date: 2019-03-13T11:33:25-04:00
+thumbnail: /uploads/default.jpg
+tags: ["faq"]
 
-[images]
-name = "Image Description"
-src = "/uploads/default.jpg"
-+++
-
+---
 
 New pool key cards can be issued to residents who are in good standing with the HOA (no outstanding fines or violations).
 

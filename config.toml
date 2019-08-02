@@ -6,6 +6,8 @@ theme = "prologue"
   name = "The Reserve At Moore Road"
   description = "Neighborhood Community"
   copyright = "2019"
+  auth_endpoint = "http://127.0.0.1:8001"
+  cms_endpoint = "http://127.0.0.1:8001"
 
 [[params.social]]
   medium = "twitter"
