@@ -11,8 +11,57 @@
     <link rel="stylesheet" href="/css/main.css" />
 
     <link href="//cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
-    <link href="//cdn.quilljs.com/1.0.0/quill.bubble.css" rel="stylesheet">
-    <link href="//cdn.quilljs.com/1.0.0/quill.core.css" rel="stylesheet">
+
+    <!-- editor style overrides -->
+    <style>
+
+      #main > section {
+        height: 100vh;
+        padding: 1em 0em;
+        text-align: left !important;
+      }
+
+      #post_content{
+        height: 80vh;
+      }
+
+      .form-field{
+        padding-right: 40px;
+        margin: 0 0 1.5rem 0;
+      }
+
+      
+      .label, label {
+        display: inline-block;
+        font-size: .7rem;
+        text-transform: uppercase;
+        color: #747474;
+        font-weight: 600;
+        letter-spacing: .03em;
+        padding: 0;
+      }
+
+      input, textarea, select {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: none;
+        border-bottom: 1px dashed #cecece;
+        outline: none;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0px;
+        letter-spacing: .01em;
+        transition: border-color 250ms ease;
+        font-weight: 400;
+      }
+
+    </style>
+
+    <!-- datetime controls -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 
     <!-- Scripts -->
     <script
@@ -22,9 +71,7 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <script src="//cdn.quilljs.com/1.0.0/quill.js"></script>
     <script src="//cdn.quilljs.com/1.0.0/quill.min.js"></script>
-    <script src="//cdn.quilljs.com/1.0.0/quill.core.js"></script>
   </head>
   <body>
     <div id="header">
@@ -52,14 +99,14 @@
         </div>
       </section>
 
-      <section id="editPost" class="posts" style="display: none">
-        <div class="container">
-            <h2 id="editPostHeader">Edit Post</h2>
-        </div>
+      <section id="editPost" class="row" style="display: none">
+          <div id="post_content" class="col-6">
 
-        <div class="container">
-            Edit Fields
-        </div>
+          </div>
+
+          <div id="post-fields" class="col-6 ">
+              
+          </div>
       </section>
     </div>
 
@@ -75,6 +122,7 @@
         <div class="card-footer"></div>
       </div>
     </script>
+
 
   </body>
 </html>

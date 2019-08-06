@@ -210,23 +210,65 @@ var cmsEditor = function(options){
 	}
 
 	var displayEditPost = function(raw){
-		//console.log("Post: " + raw);
-
-
 		try{
-			content = frontmatter(raw);
+			var fm = frontmatter(raw);
 		
 
-			$("#editPostHeader").html(content.data.title);
+			$("#post_title").val(fm.data.title);
 
+
+			// add main content editor
+			$("#post_content").empty();
+			var quill_container = $("<div>");
+			quill_container.attr("id", "post_content_container");
+			$("#post_content").append(quill_container);
+
+			var quill = new Quill('#post_content_container', {
+			    theme: 'snow'
+			});
+
+			quill.setText(fm.content + '\n');
+
+
+			// add fields for frontmatter content
+			$.each(fm.data, function(key, value){
+				console.log(key + ": " + value);
+
+				field_id = "params." + key;
+              	formField = $("<div class='form-field'>");
+              	
+              	label = $("<label class='label'>");
+              	label.attr("for", field_id)
+              	label.html(key);
+              	
+              	input = $("<input>");
+              	input.attr("type", "text");
+              	input.attr("id", field_id);
+              	input.attr("name", field_id);
+              	input.attr("placeholder", key + " goes here ...");
+              	input.val(value);
+
+              	isDate = key == "date";
+              	if (isDate){
+              		// datetimepicker control
+              		input.addClass("datetimepicker-input");
+              		input.attr("data-target", field_id);
+              		input.attr("data-toggle", "datetimepicker");
+
+	                // $("#params.date").datetimepicker();
+              	}
+
+              	// normal text box
+          		formField.append(label);
+          		formField.append(input);
+
+              	$("#post-fields").append(formField);
+			});
 
 		}
 		catch(err) {
 		  console.log(err.message);
 		}
-
-
-		
 
 
 		resetDisplay();
